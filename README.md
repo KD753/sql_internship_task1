@@ -10,5 +10,5 @@
 2. `ER_Day1.png`: Entity-Relationship diagram
 
 ## How to Run
-1. Execute `library_schema.sql` in MySQL
+1. Execute `University_Database_Day1.sql` in MySQL
 2. Open MySQL Workbench → Reverse Engineer to view diagram
