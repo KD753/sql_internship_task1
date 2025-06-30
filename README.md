@@ -6,9 +6,9 @@
 - Used MySQL workbench for implementation.
 
 ## Files
-1. `University_Database_Day1.sql`: SQL script to create tables
-2. `ER_Day1.png`: Entity-Relationship diagram
+1. `KD_UniversityDB.sql`: SQL script to create tables
+2. `ER_DayI.png`: Entity-Relationship diagram
 
 ## How to Run
-1. Execute `University_Database_Day1.sql` in MySQL
+1. Execute `KD_UniversityDB.sql` in MySQL
 2. Open MySQL Workbench → Reverse Engineer to view diagram
