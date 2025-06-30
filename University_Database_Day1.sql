@@ -1,44 +1,49 @@
-CREATE DATABASE UniversityDB;
-USE UniversityDB;
+show databases;
 
-CREATE TABLE Departments(
-	DeptID INT PRIMARY KEY AUTO_INCREMENT ,
-    DeptName VARCHAR(50) NOT NULL,
-    Building VARCHAR(50)
+create database KD_UniversityDB;
+
+use KD_UniversityDB;
+
+create table Departments(
+DeptID int PRIMARY KEY AUTO_INCREMENT ,
+Dept_Name varchar(20),
+Building varchar(20)
 );
 
-CREATE TABLE Students (
-    StudentID INT PRIMARY KEY AUTO_INCREMENT,
-    FirstName VARCHAR(50) NOT NULL,
-    LastName VARCHAR(50) NOT NULL,
-    BirthDate DATE,
-    DeptID INT,
-    FOREIGN KEY (DeptID) REFERENCES Departments(DeptID)
+create table Courses(
+CourseID int PRIMARY KEY auto_increment,
+CName varchar(40),
+DeptID int, 
+FOREIGN KEY (DeptID) REFERENCES departments(DeptID), 
+Credits int
 );
 
-CREATE TABLE Courses (
-    CourseID INT PRIMARY KEY AUTO_INCREMENT,
-    CourseName VARCHAR(100) NOT NULL,
-    Credits INT DEFAULT 3,
-    DeptID INT,
-    FOREIGN KEY (DeptID) REFERENCES Departments(DeptID)
+create table Enrollments(
+EnrollID varchar(20) primary key,
+SName varchar(50),
+DeptID int, 
+FOREIGN KEY (DeptID) REFERENCES departments(DeptID), 
+Address varchar(60),
+Sex char,
+DOB Date ,
+Age INT GENERATED ALWAYS AS (EXTRACT(YEAR FROM DOB)) STORED
 );
 
-CREATE TABLE Enrollments (
-    EnrollmentID INT PRIMARY KEY AUTO_INCREMENT,
-    StudentID INT NOT NULL,
-    CourseID INT NOT NULL,
-    EnrollmentDate DATE DEFAULT (CURRENT_DATE),
-    Grade CHAR(1),
-    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
-    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+create table Professors(
+ProfID int primary key ,
+Prof_Name varchar (60),
+Dept_Name varchar(40),
+CourseID int,
+foreign key (CourseID) references courses(CourseID)
 );
 
-CREATE TABLE Professors (
-    ProfessorID INT PRIMARY KEY AUTO_INCREMENT,
-    FirstName VARCHAR(50) NOT NULL,
-    LastName VARCHAR(50) NOT NULL,
-    DeptID INT,
-    Office VARCHAR(20),
-    FOREIGN KEY (DeptID) REFERENCES Departments(DeptID)
-);
+
+
+
+
+
+
+
+
+
+
